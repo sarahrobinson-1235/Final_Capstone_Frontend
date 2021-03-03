@@ -1,11 +1,15 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
+    <h1>Recent Posts</h1>
     <div v-for="post in posts" v-bind:key="post.id">
-      <h1>{{ post.title }}</h1>
+      <h2>{{ post.title }}</h2>
+      <img v-bind:src="post.image_url" alt="" />
+      <router-link :to="`/users/${post.created_by.id}`">
+        <p>By: {{ post.created_by["name"] }}</p>
+      </router-link>
       <p>{{ post.body }}</p>
-      <p>{{ post.created_by["name"] }}</p>
-      <p>{{ post.created_at }}</p>
+      <p>Posted:{{ relativeDate(post.created_at) }}</p>
     </div>
   </div>
 </template>
@@ -13,6 +17,8 @@
 
 <script>
 import axios from "axios";
+import moment from "moment";
+
 export default {
   data: function() {
     return {
@@ -34,6 +40,9 @@ export default {
         .catch((error) => {
           console.log(error.response.data.errors);
         });
+    },
+    relativeDate: function(date) {
+      return moment(date).fromNow();
     },
   },
 };
