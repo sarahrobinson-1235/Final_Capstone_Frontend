@@ -4,7 +4,9 @@
     <h1>Recent Posts</h1>
     <div v-for="post in posts" v-bind:key="post.id">
       <h2>{{ post.title }}</h2>
-      <img v-bind:src="post.image_url" alt="" />
+      <router-link :to="`/posts/${post.id}`">
+        <img v-bind:src="post.image_url" alt="" />
+      </router-link>
       <router-link :to="`/users/${post.created_by.id}`">
         <p>By: {{ post.created_by["name"] }}</p>
       </router-link>

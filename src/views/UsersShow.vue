@@ -4,11 +4,10 @@
       <h1>{{ user.name }}</h1>
       <p>{{ user.email }}</p>
       <!-- <div v-if="user.owner"> -->
-      <div>
-        <router-link :to="`/users/${user.id}/edit`"
-          ><button>Edit Profile</button>
-        </router-link>
-      </div>
+      <router-link :to="`/users/${user.id}/edit`"
+        ><button>Edit Profile</button>
+      </router-link>
+      <!-- </div> -->
 
       <p>User's Profile: {{ user.id }}</p>
       <p>User logged in: {{ $parent.getUserId() }}</p>
