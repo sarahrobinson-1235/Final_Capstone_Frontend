@@ -8,6 +8,10 @@ import UsersShow from "../views/UsersShow.vue";
 import UsersEdit from "../views/UsersEdit.vue";
 import PostsNew from "../views/PostsNew.vue";
 import PostsShow from "../views/PostsShow.vue";
+import PostsEdit from "../views/PostsEdit.vue";
+import BoardsIndex from "../views/BoardsIndex.vue";
+import BoardsShow from "../views/BoardsShow.vue";
+import BoardsNew from "../views/BoardsNew.vue";
 
 Vue.use(VueRouter);
 
@@ -60,6 +64,26 @@ const routes = [
     path: "/posts/:id", 
     name: "posts-show", 
     component: PostsShow 
+  },
+  { 
+    path: "/posts/:id/edit", 
+    name: "posts-edit", 
+    component: PostsEdit 
+  },
+  { 
+    path: "/boards", 
+    name: "boards-index", 
+    component: BoardsIndex 
+  },
+  { 
+    path: "/boards/:id", 
+    name: "boards-show", 
+    component: BoardsShow 
+  },
+  { 
+    path: "/boards/new", 
+    name: "boards-new", 
+    component: BoardsNew 
   }
 ];
 

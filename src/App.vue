@@ -17,7 +17,18 @@
       <router-link class="nav-link" v-if="loggedIn()" to="/posts/new"
         >New Post</router-link
       >|
-      <!-- <router-link to="/users/${$parent.getUserId()}">Profile</router-link>| -->
+      <router-link class="nav-link" v-if="loggedIn()" to="/boards"
+        >Boards</router-link
+      >|
+      <router-link class="nav-link" v-if="loggedIn()" to="/boards/new"
+        >New Board</router-link
+      >|
+      <!-- <router-link
+        class="nav-link"
+        v-if="loggedIn()"
+        :to="/users/`${$parent.getUserId()}`"
+        >Profile</router-link
+      >| -->
     </div>
     <router-view />
   </div>

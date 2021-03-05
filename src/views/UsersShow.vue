@@ -17,8 +17,10 @@
     <div>
       <h1>Posts</h1>
       <div v-for="post in posts" v-bind:key="post.id">
-        <h3>{{ post.title }}</h3>
-        <img :src="post.image_url" alt="" />
+        <router-link :to="`/posts/${post.id}`">
+          <h3>{{ post.name }}</h3>
+        </router-link>
+        <img v-bind:src="post.image_url" alt="" />
         <p>{{ post.body }}</p>
         <p>Posted: {{ relativeDate(post.created_at) }}</p>
       </div>
