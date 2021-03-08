@@ -10,7 +10,7 @@
     </router-link>
 
     <router-link :to="`/users/${post.created_by.id}`">
-      <p>{{ post.created_by.name }}</p>
+      <p>Creator: {{ post.created_by.name }}</p>
     </router-link>
     <img v-bind:src="post.created_by.image_url" alt="" />
   </div>

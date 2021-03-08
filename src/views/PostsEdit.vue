@@ -52,11 +52,15 @@ export default {
         body: this.post.body,
         image_url: this.post.image_url,
       };
-      axios.patch(`/api/posts/${this.post.id}`, params).then((response) => {
-        this.post = response.data;
-        console.log(this.post);
-        this.$router.push(`/posts/${this.post.id}`);
-      });
+      axios
+        .patch(`/api/posts/${this.post.id}`, params)
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push(`/posts/${this.post.id}`);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
     },
     destroyPost: function() {
       if (confirm("Are you aure you want to delete your affirmation?")) {

@@ -3,7 +3,7 @@
     <h1>{{ message }}</h1>
     <h1>Recent Posts</h1>
     <div v-for="post in posts" v-bind:key="post.id">
-      <h2>{{ post.title }}</h2>
+      <h2>{{ post.name }}</h2>
       <router-link :to="`/posts/${post.id}`">
         <img v-bind:src="post.image_url" alt="" />
       </router-link>
