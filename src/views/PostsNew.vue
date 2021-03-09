@@ -19,7 +19,7 @@
         <label>Add a picture: </label>
         <input type="text" class="form-control" v-model="image_url" />
       </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
+      <input type="submit" class="btn btn-primary" value="Create Post" />
     </form>
   </div>
 </template>

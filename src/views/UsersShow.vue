@@ -14,7 +14,7 @@
     <img :src="user.image_url" alt="" />
 
     <div>
-      <h1>Posts</h1>
+      <h1>{{ user.name }}'s Posts</h1>
       <div v-for="post in posts" v-bind:key="post.id">
         <router-link :to="`/posts/${post.id}`">
           <h3>{{ post.name }}</h3>
@@ -25,9 +25,11 @@
       </div>
     </div>
     <div>
-      <h1>Boards</h1>
+      <h1>{{ user.name }}'s Boards</h1>
       <div v-for="board in boards" v-bind:key="board.id">
-        <h3>{{ board.title }}</h3>
+        <router-link :to="`/boards/${board.id}`">
+          <h3>{{ board.title }}</h3>
+        </router-link>
         <p>{{ board.description }}</p>
         <p>Created: {{ relativeDate(board.created_at) }}</p>
       </div>

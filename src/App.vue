@@ -18,9 +18,7 @@
       <router-link class="nav-link" v-if="isLoggedIn()" to="/boards"
         >Boards</router-link
       >|
-      <router-link class="nav-link" v-if="isLoggedIn()" to="/boards/new"
-        >New Board</router-link
-      >|
+
       <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`"
         >Profile</router-link
       >

@@ -1,6 +1,11 @@
 <template>
   <div class="boards-show">
+    <p>Board's User: {{ user.id }}</p>
+    <p>User logged in: {{ $parent.getUserId() }}</p>
     <h1>{{ board.title }}</h1>
+    <router-link v-if="owner()" :to="`/boards/${board.id}/edit`"
+      ><button>Edit Board</button></router-link
+    >
     <h2>{{ board.description }}</h2>
     <div v-for="post in posts" v-bind:key="post.id">
       <router-link :to="`/posts/${post.id}`">
@@ -8,7 +13,7 @@
       </router-link>
       <img v-bind:src="post.image_url" alt="" />
       <router-link :to="`/users/${post.created_by.id}`">
-        <p>By: {{ post.created_by["name"] }}</p>
+        <p>Creator: {{ post.created_by["name"] }}</p>
       </router-link>
       <p>{{ post.body }}</p>
       <p>Posted:{{ relativeDate(post.created_at) }}</p>
@@ -24,21 +29,25 @@ import moment from "moment";
 export default {
   data: function() {
     return {
-      board: {},
-      posts: [],
+      board: [],
+      posts: {},
+      user: {},
     };
   },
   created: function() {
     axios.get(`/api/boards/${this.$route.params.id}`).then((response) => {
       this.board = response.data;
       this.posts = this.board.posts;
+      this.user = this.board.created_by;
       console.log(this.board);
-      console.log(this.posts);
     });
   },
   methods: {
     relativeDate: function(date) {
       return moment(date).fromNow();
+    },
+    owner: function() {
+      return this.$parent.getUserId() == this.user.id;
     },
   },
 };

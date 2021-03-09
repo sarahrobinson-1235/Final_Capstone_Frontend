@@ -19,14 +19,6 @@
         <label>Change Password:</label>
         <input type="password" class="form-control" v-model="user.password" />
       </div>
-      <!-- <div class="form-group">
-        <label>Confirm Password:</label>
-        <input
-          type="password"
-          class="form-control"
-          v-model="user.password_confirmation"
-        />
-      </div> -->
       <div class="form-group">
         <label>Profile Pic:</label>
         <input type="text" class="form-control" v-model="user.image_url" />

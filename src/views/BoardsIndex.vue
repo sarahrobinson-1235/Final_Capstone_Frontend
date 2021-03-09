@@ -1,7 +1,7 @@
 <template>
   <div class="boards-index">
     <h1>Browse Through Boards Created By Our Members..</h1>
-    <router-link class="nav-link" v-if="isLoggedIn()" to="/boards/new"
+    <router-link v-if="isLoggedIn()" to="/boards/new"
       ><button>New Board</button></router-link
     >
     <div v-for="board in boards" v-bind:key="board.id">

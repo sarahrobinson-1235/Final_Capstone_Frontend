@@ -1,13 +1,15 @@
 <template>
   <div class="posts-show">
+    <p>Post's User: {{ user.id }}</p>
+    <p>User logged in: {{ $parent.getUserId() }}</p>
     <h1>{{ post.name }}</h1>
     <img v-bind:src="post.image_url" alt="" />
     <br />
     <h2>{{ post.body }}</h2>
     <p>Posted: {{ relativeDate(post.created_at) }}</p>
-    <!-- <router-link v-if="owner(post.user_id)" :to="`/posts/${post.id}/edit`"
-      ><button>Edit Post</button>
-    </router-link> -->
+    <router-link v-if="owner()" :to="`/posts/${post.id}/edit`"
+      ><button>Edit Post</button></router-link
+    >
 
     <router-link :to="`/users/${post.created_by.id}`">
       <p>Creator: {{ post.created_by.name }}</p>
@@ -25,12 +27,15 @@ export default {
   data: function() {
     return {
       post: {},
+      user: {},
     };
   },
   created: function() {
     axios.get(`/api/posts/${this.$route.params.id}`).then((response) => {
       this.post = response.data;
+      this.user = this.post.created_by;
       console.log(this.post);
+      console.log(this.user);
     });
   },
   methods: {

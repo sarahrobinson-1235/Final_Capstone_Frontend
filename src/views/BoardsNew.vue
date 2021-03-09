@@ -2,7 +2,7 @@
   <div class="boards-new">
     <form v-on:submit.prevent="createBoard()">
       <h1>
-        Here you can create endless collections of yours and others' posts
+        Here you can create endless collections of yours and others' posts...
       </h1>
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
@@ -10,14 +10,13 @@
         </li>
       </ul>
       <div class="form-group">
-        <label>Name Your Board: </label>
+        <label>Title: </label>
         <input type="text" class="form-control" v-model="title" />
       </div>
       <div class="form-group">
         <label>What's the collective theme?: </label>
         <input type="text" class="form-control" v-model="description" />
       </div>
-
       <input type="submit" class="btn btn-primary" value="Create Board" />
     </form>
   </div>
