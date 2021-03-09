@@ -3,32 +3,27 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-      <router-link class="nav-link" v-if="!loggedIn()" to="/signup"
+      <router-link class="nav-link" v-if="!isLoggedIn()" to="/signup"
         >Signup</router-link
       >
       |
-      <router-link class="nav-link" v-if="!loggedIn()" to="/login"
+      <router-link class="nav-link" v-if="!isLoggedIn()" to="/login"
         >Login</router-link
       >
       |
-      <router-link class="nav-link" v-if="loggedIn()" to="/logout"
+      <router-link class="nav-link" v-if="isLoggedIn()" to="/logout"
         >Logout</router-link
       >|
-      <router-link class="nav-link" v-if="loggedIn()" to="/posts/new"
-        >New Post</router-link
-      >|
-      <router-link class="nav-link" v-if="loggedIn()" to="/boards"
+
+      <router-link class="nav-link" v-if="isLoggedIn()" to="/boards"
         >Boards</router-link
       >|
-      <router-link class="nav-link" v-if="loggedIn()" to="/boards/new"
+      <router-link class="nav-link" v-if="isLoggedIn()" to="/boards/new"
         >New Board</router-link
       >|
-      <!-- <router-link
-        class="nav-link"
-        v-if="loggedIn()"
-        :to="/users/`${$parent.getUserId()}`"
+      <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`"
         >Profile</router-link
-      >| -->
+      >
     </div>
     <router-view />
   </div>
@@ -63,8 +58,8 @@ export default {
     return {};
   },
   methods: {
-    loggedIn: function() {
-      return localStorage.jwt ? true : false;
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
     },
     getUserId: function() {
       return localStorage.user_id;

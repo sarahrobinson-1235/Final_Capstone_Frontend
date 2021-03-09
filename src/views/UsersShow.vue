@@ -3,17 +3,16 @@
     <div>
       <h1>{{ user.name }}</h1>
       <p>{{ user.email }}</p>
-      <!-- <div v-if="user.owner"> -->
-      <router-link :to="`/users/${user.id}/edit`"
+      <router-link v-if="owner()" :to="`/users/${user.id}/edit`"
         ><button>Edit Profile</button>
       </router-link>
-      <!-- </div> -->
-
-      <p>User's Profile: {{ user.id }}</p>
-      <p>User logged in: {{ $parent.getUserId() }}</p>
-
-      <img :src="user.image_url" alt="" />
     </div>
+
+    <p>User's Profile: {{ user.id }}</p>
+    <p>User logged in: {{ $parent.getUserId() }}</p>
+
+    <img :src="user.image_url" alt="" />
+
     <div>
       <h1>Posts</h1>
       <div v-for="post in posts" v-bind:key="post.id">
@@ -33,7 +32,6 @@
         <p>Created: {{ relativeDate(board.created_at) }}</p>
       </div>
     </div>
-    <p>Name: {{ user }}</p>
   </div>
 </template>
 <style></style>
@@ -61,6 +59,9 @@ export default {
   methods: {
     relativeDate: function(date) {
       return moment(date).fromNow();
+    },
+    owner: function() {
+      return this.$parent.getUserId() == this.user.id;
     },
   },
 };

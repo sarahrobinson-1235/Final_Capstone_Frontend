@@ -5,9 +5,9 @@
     <br />
     <h2>{{ post.body }}</h2>
     <p>Posted: {{ relativeDate(post.created_at) }}</p>
-    <router-link :to="`/posts/${post.id}/edit`"
+    <!-- <router-link v-if="owner(post.user_id)" :to="`/posts/${post.id}/edit`"
       ><button>Edit Post</button>
-    </router-link>
+    </router-link> -->
 
     <router-link :to="`/users/${post.created_by.id}`">
       <p>Creator: {{ post.created_by.name }}</p>
@@ -36,6 +36,9 @@ export default {
   methods: {
     relativeDate: function(date) {
       return moment(date).fromNow();
+    },
+    owner: function() {
+      return this.$parent.getUserId() == this.user.id;
     },
   },
 };

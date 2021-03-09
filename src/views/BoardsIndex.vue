@@ -1,7 +1,9 @@
 <template>
   <div class="boards-index">
     <h1>Browse Through Boards Created By Our Members..</h1>
-    <!-- <router-link to="/boards/new"><button>New Board</button> </router-link> -->
+    <router-link class="nav-link" v-if="isLoggedIn()" to="/boards/new"
+      ><button>New Board</button></router-link
+    >
     <div v-for="board in boards" v-bind:key="board.id">
       <div>
         <router-link :to="`/boards/${board.id}`">
@@ -45,6 +47,9 @@ export default {
     },
     relativeDate: function(date) {
       return moment(date).fromNow();
+    },
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
     },
   },
 };

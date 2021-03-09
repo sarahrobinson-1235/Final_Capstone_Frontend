@@ -2,6 +2,9 @@
   <div class="home">
     <h1>{{ message }}</h1>
     <h1>Recent Posts</h1>
+    <router-link v-if="isLoggedIn()" to="/posts/new"
+      ><button>New Post</button></router-link
+    >
     <div v-for="post in posts" v-bind:key="post.id">
       <h2>{{ post.name }}</h2>
       <router-link :to="`/posts/${post.id}`">
@@ -45,6 +48,9 @@ export default {
     },
     relativeDate: function(date) {
       return moment(date).fromNow();
+    },
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
     },
   },
 };
