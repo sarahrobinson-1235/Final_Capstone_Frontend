@@ -1,5 +1,17 @@
 <template>
   <div class="posts-show">
+    <form v-on:submit.prevent="createBoardPost()">
+      {{ message }}
+      <div class="form-group">
+        <label>Board: </label>
+        <input type="text" class="form-control" v-model="board_id" />
+      </div>
+      <div class="form-group">
+        <label>post: </label>
+        <input type="text" class="form-control" v-model="post_id" />
+      </div>
+      <input type="submit" class="btn btn-primary" value="Post to Board" />
+    </form>
     <p>Post's User: {{ user.id }}</p>
     <p>User logged in: {{ $parent.getUserId() }}</p>
     <h1>{{ post.name }}</h1>
@@ -28,12 +40,17 @@ export default {
     return {
       post: {},
       user: {},
+      board_id: "",
+      post_id: "",
+      board_post: {},
+      message: "",
     };
   },
   created: function() {
     axios.get(`/api/posts/${this.$route.params.id}`).then((response) => {
       this.post = response.data;
       this.user = this.post.created_by;
+      this.post_id = this.post.id;
       console.log(this.post);
       console.log(this.user);
     });
@@ -44,6 +61,17 @@ export default {
     },
     owner: function() {
       return this.$parent.getUserId() == this.user.id;
+    },
+    createBoardPost: function() {
+      var params = {
+        board_id: this.board_id,
+        post_id: this.post_id,
+      };
+      axios.post("/api/board_posts", params).then((response) => {
+        this.board_post = response.data;
+        console.log(this.board_post);
+        this.message = "Post added to your board!";
+      });
     },
   },
 };
