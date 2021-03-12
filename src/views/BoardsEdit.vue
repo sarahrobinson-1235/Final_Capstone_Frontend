@@ -21,15 +21,12 @@
       <button v-on:click="destroyBoard()">Delete Board</button>
     </form>
     <div v-for="board_post in board_posts" v-bind:key="board_post.id">
-      <div>
-        <h3>{{ board_post.name }}</h3>
-        <p>{{ board_post.body }}</p>
-        <button v-on:click="destroyBoardPost()">
-          Remove From Board
-        </button>
-      </div>
+      <h3>{{ board_post.name }}</h3>
+      <p>{{ board_post.body }}</p>
+      <button v-on:click="destroyBoardPost(board_post)">
+        Remove From Board
+      </button>
     </div>
-    {{ board }}
   </div>
 </template>
 <style></style>
@@ -49,8 +46,8 @@ export default {
   created: function() {
     axios.get(`/api/boards/${this.$route.params.id}`).then((response) => {
       this.board = response.data;
-      this.board_posts = this.board.posts;
       console.log(this.board);
+      this.board_posts = this.board.board_posts;
       console.log(this.board_posts);
     });
   },
@@ -72,16 +69,19 @@ export default {
     },
     destroyBoard: function() {
       if (confirm("Are you aure you want to delete your board?")) {
-        axios.delete(`/api/boards/${this.board_post.id}`).then((response) => {
-          console.log(response.data);
-          this.$router.push("/boards");
-        });
+        axios
+          .delete(`/api/boards/${this.board.board_post.id}`)
+          .then((response) => {
+            console.log(response.data);
+            this.$router.push("/boards");
+          });
       }
     },
     destroyBoardPost: function(board_post) {
       if (
         confirm("Are you aure you want to remove this post from your board?")
       ) {
+        console.log(board_post);
         axios.delete(`/api/board_posts/${board_post.id}`).then((response) => {
           console.log(response.data);
           this.message = "Post removed from your board!";
