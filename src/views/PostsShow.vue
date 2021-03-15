@@ -44,6 +44,8 @@ export default {
       post_id: "",
       board_post: {},
       message: "",
+      board: {},
+      errors: [],
     };
   },
   created: function() {
@@ -67,11 +69,18 @@ export default {
         board_id: this.board_id,
         post_id: this.post_id,
       };
-      axios.post("/api/board_posts", params).then((response) => {
-        this.board_post = response.data;
-        console.log(this.board_post);
-        this.message = "Post added to your board!";
-      });
+      axios
+        .post("/api/board_posts", params)
+        .then((response) => {
+          this.board_post = response.data;
+          console.log(this.board_post);
+          this.board = response.data.board;
+          console.log(this.board);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
+      this.message = "Not your board!";
     },
   },
 };

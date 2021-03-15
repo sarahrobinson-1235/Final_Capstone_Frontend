@@ -21,12 +21,13 @@
       <button v-on:click="destroyBoard()">Delete Board</button>
     </form>
     <div v-for="board_post in board_posts" v-bind:key="board_post.id">
-      <h3>{{ board_post.name }}</h3>
-      <p>{{ board_post.body }}</p>
+      <h3>{{ board_post.post.name }}</h3>
+      <p>{{ board_post.post.body }}</p>
       <button v-on:click="destroyBoardPost(board_post)">
         Remove From Board
       </button>
     </div>
+    {{ board_posts }}
   </div>
 </template>
 <style></style>
