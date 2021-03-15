@@ -10,8 +10,8 @@
       <router-link :to="`/posts/${post.id}`">
         <img v-bind:src="post.image_url" alt="" />
       </router-link>
-      <router-link :to="`/users/${post.created_by.id}`">
-        <p>By: {{ post.created_by["name"] }}</p>
+      <router-link :to="`/users/${post.user.id}`">
+        <p>By: {{ post.user.name }}</p>
       </router-link>
       <p>{{ post.body }}</p>
       <p>Posted:{{ relativeDate(post.created_at) }}</p>

@@ -30,7 +30,6 @@
     {{ board_posts }}
   </div>
 </template>
-<style></style>
 
 <script>
 import axios from "axios";
@@ -42,6 +41,7 @@ export default {
       errors: [],
       board_posts: [],
       message: "",
+      posts: [],
     };
   },
   created: function() {
@@ -49,7 +49,9 @@ export default {
       this.board = response.data;
       console.log(this.board);
       this.board_posts = this.board.board_posts;
+      this.posts = this.board.board_posts.posts;
       console.log(this.board_posts);
+      console.log(this.posts);
     });
   },
   methods: {

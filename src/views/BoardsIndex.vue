@@ -10,8 +10,8 @@
           <h2>{{ board.title }}</h2>
         </router-link>
         <p>{{ board.description }}</p>
-        <router-link :to="`/users/${board.created_by.id}`">
-          <p>By: {{ board.created_by["name"] }}</p>
+        <router-link :to="`/users/${board.user.id}`">
+          <p>By: {{ board.user.name }}</p>
         </router-link>
         <p>Last Updated: {{ relativeDate(board.updated_at) }}</p>
       </div>
