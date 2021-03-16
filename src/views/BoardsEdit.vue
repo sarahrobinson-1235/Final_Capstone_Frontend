@@ -20,14 +20,18 @@
       <input type="submit" class="btn btn-primary" />
       <button v-on:click="destroyBoard()">Delete Board</button>
     </form>
-    <div v-for="board_post in board_posts" v-bind:key="board_post.id">
-      <h3>{{ board_post.post.name }}</h3>
-      <p>{{ board_post.post.body }}</p>
+    <div v-for="post in board.posts" v-bind:key="post.id">
+      <h3>{{ post.name }}</h3>
+      <p>{{ post.body }}</p>
+      <button v-on:click="destroyBoardPost(board.board_post)">
+        Remove From Board
+      </button>
+    </div>
+    <div v-for="board_post in board.board_posts" v-bind:key="board_post.id">
       <button v-on:click="destroyBoardPost(board_post)">
         Remove From Board
       </button>
     </div>
-    {{ board_posts }}
   </div>
 </template>
 
@@ -37,21 +41,15 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      board: [],
+      board: {},
       errors: [],
-      board_posts: [],
       message: "",
-      posts: [],
     };
   },
   created: function() {
     axios.get(`/api/boards/${this.$route.params.id}`).then((response) => {
       this.board = response.data;
       console.log(this.board);
-      this.board_posts = this.board.board_posts;
-      this.posts = this.board.board_posts.posts;
-      console.log(this.board_posts);
-      console.log(this.posts);
     });
   },
   methods: {

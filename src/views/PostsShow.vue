@@ -25,8 +25,6 @@
       <p>Creator: {{ post.user.name }}</p>
     </router-link>
     <img v-bind:src="post.user.image_url" alt="" />
-
-    {{ post }}
   </div>
 </template>
 
