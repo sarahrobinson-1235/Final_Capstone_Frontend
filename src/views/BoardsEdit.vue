@@ -20,15 +20,10 @@
       <input type="submit" class="btn btn-primary" />
       <button v-on:click="destroyBoard()">Delete Board</button>
     </form>
-    <div v-for="post in board.posts" v-bind:key="post.id">
-      <h3>{{ post.name }}</h3>
-      <p>{{ post.body }}</p>
-      <button v-on:click="destroyBoardPost(board.board_post)">
-        Remove From Board
-      </button>
-    </div>
-    <div v-for="board_post in board.board_posts" v-bind:key="board_post.id">
-      <button v-on:click="destroyBoardPost(board_post)">
+    <div v-for="boardPost in board.board_posts" v-bind:key="boardPost.id">
+      <h3>{{ boardPost.post.name }}</h3>
+      <p>{{ boardPost.post.body }}</p>
+      <button v-on:click="destroyBoardPost(boardPost)">
         Remove From Board
       </button>
     </div>
@@ -70,23 +65,22 @@ export default {
     },
     destroyBoard: function() {
       if (confirm("Are you aure you want to delete your board?")) {
-        axios
-          .delete(`/api/boards/${this.board.board_post.id}`)
-          .then((response) => {
-            console.log(response.data);
-            this.$router.push("/boards");
-          });
+        axios.delete(`/api/boards/${this.board.id}`).then((response) => {
+          console.log(response.data);
+          this.$router.push("/boards");
+        });
       }
     },
-    destroyBoardPost: function(board_post) {
+    destroyBoardPost: function(boardPost) {
       if (
         confirm("Are you aure you want to remove this post from your board?")
       ) {
-        console.log(board_post);
-        axios.delete(`/api/board_posts/${board_post.id}`).then((response) => {
+        console.log(boardPost);
+        axios.delete(`/api/board_posts/${boardPost.id}`).then((response) => {
           console.log(response.data);
           this.message = "Post removed from your board!";
-          this.$router.push(`/boards/${this.board.id}`);
+          var index = this.board.board_posts.indexOf(boardPost);
+          this.board.board_posts.splice(index, 1);
         });
       }
     },

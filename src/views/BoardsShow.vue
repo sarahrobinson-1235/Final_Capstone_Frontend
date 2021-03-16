@@ -1,7 +1,5 @@
 <template>
   <div class="boards-show">
-    <!-- <p>Board's User: {{ board.user.id }}</p>
-    <p>User logged in: {{ $parent.getUserId() }}</p> -->
     <router-link
       v-if="$parent.getUserId() == board.user.id"
       :to="`/boards/${board.id}/edit`"
@@ -9,16 +7,16 @@
     >
     <h1>{{ board.title }}</h1>
     <h2>{{ board.description }}</h2>
-    <div v-for="post in board.posts" v-bind:key="post.id">
-      <router-link :to="`/posts/${post.id}`">
-        <h2>{{ post.name }}</h2>
+    <div v-for="boardPost in board.board_posts" v-bind:key="boardPost.post.id">
+      <router-link :to="`/posts/${boardPost.post.id}`">
+        <h2>{{ boardPost.post.name }}</h2>
       </router-link>
-      <img v-bind:src="post.image_url" alt="" />
-      <p>{{ post.body }}</p>
-      <router-link :to="`/users/${post.user.id}`">
-        <p>Creator: {{ post.user.name }}</p>
+      <img v-bind:src="boardPost.post.image_url" alt="" />
+      <p>{{ boardPost.post.body }}</p>
+      <router-link :to="`/users/${boardPost.post.user.id}`">
+        <p>Creator: {{ boardPost.post.user.name }}</p>
       </router-link>
-      <p>Posted: {{ relativeDate(post.created_at) }}</p>
+      <p>Posted: {{ relativeDate(boardPost.post.created_at) }}</p>
     </div>
   </div>
 </template>
@@ -30,7 +28,7 @@ import moment from "moment";
 export default {
   data: function() {
     return {
-      board: {},
+      board: {user: {}},
     };
   },
   created: function() {

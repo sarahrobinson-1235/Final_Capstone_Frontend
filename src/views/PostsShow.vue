@@ -4,12 +4,18 @@
       {{ message }}
       <div class="form-group">
         <label>Board: </label>
-        <input type="text" class="form-control" v-model="board_id" />
+        <select v-model="board_id" id=""
+          ><option
+            :value="board.id"
+            v-for="board in boards"
+            v-bind:key="board.id"
+            >{{ board.title }}</option
+          ></select
+        >
+        {{ board_id }}
       </div>
       <input type="submit" class="btn btn-primary" value="Post to Board" />
     </form>
-    <p>Post's User: {{ post.user.id }}</p>
-    <p>User logged in: {{ $parent.getUserId() }}</p>
     <h1>{{ post.name }}</h1>
     <img v-bind:src="post.image_url" alt="" />
     <br />
@@ -35,18 +41,21 @@ import moment from "moment";
 export default {
   data: function() {
     return {
-      post: {},
+      post: { user: {} },
       board_id: "",
-      post_id: "",
       message: "",
       errors: [],
-      board_post: {},
+      boards: []
     };
   },
   created: function() {
-    axios.get(`/api/posts/${this.$route.params.id}`).then((response) => {
+    axios.get(`/api/posts/${this.$route.params.id}`).then(response => {
       this.post = response.data;
       console.log(this.post);
+    });
+    axios.get("api/boards/me").then(response => {
+      this.boards = response.data;
+      console.log(response.data);
     });
   },
   methods: {
@@ -57,20 +66,20 @@ export default {
     createBoardPost: function() {
       var params = {
         board_id: this.board_id,
-        post_id: this.post.id,
+        post_id: this.post.id
       };
       axios
         .post("/api/board_posts", params)
-        .then((response) => {
+        .then(response => {
           this.board_post = response.data;
           console.log(this.board_post);
           console.log(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
           this.errors = error.response.data.errors;
         });
-      this.message = "Not your board!";
-    },
-  },
+      this.message = "Post added to your board!";
+    }
+  }
 };
 </script>
