@@ -31,7 +31,7 @@
           <h3>{{ board.title }}</h3>
         </router-link>
         <p>{{ board.description }}</p>
-        <p>Created: {{ relativeDate(board.created_at) }}</p>
+        <p>Updated: {{ relativeDate(board.created_at) }}</p>
       </div>
     </div>
   </div>

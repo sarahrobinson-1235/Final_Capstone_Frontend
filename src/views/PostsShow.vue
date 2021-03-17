@@ -3,7 +3,7 @@
     <form v-on:submit.prevent="createBoardPost()">
       {{ message }}
       <div class="form-group">
-        <label>Board: </label>
+        <label>Boards: </label>
         <select v-model="board_id" id=""
           ><option
             :value="board.id"
@@ -14,13 +14,14 @@
         >
         {{ board_id }}
       </div>
-      <input type="submit" class="btn btn-primary" value="Post to Board" />
+      <input type="submit" class="btn btn-primary" value="Add to Board" />
     </form>
     <h1>{{ post.name }}</h1>
     <img v-bind:src="post.image_url" alt="" />
     <br />
     <h2>{{ post.body }}</h2>
     <p>Posted: {{ relativeDate(post.created_at) }}</p>
+    Likes: {{ post.likes }}
     <router-link
       v-if="$parent.getUserId() == post.user.id"
       :to="`/posts/${post.id}/edit`"

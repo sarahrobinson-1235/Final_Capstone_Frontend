@@ -2,7 +2,6 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
       <router-link class="nav-link" v-if="!isLoggedIn()" to="/signup"
         >Signup</router-link
       >
@@ -11,17 +10,16 @@
         >Login</router-link
       >
       |
-      <router-link class="nav-link" v-if="isLoggedIn()" to="/logout"
-        >Logout</router-link
-      >|
-
       <router-link class="nav-link" v-if="isLoggedIn()" to="/boards"
         >Boards</router-link
-      >|
+      > |
 
       <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`"
         >Profile</router-link
-      >
+      > |
+      <router-link class="nav-link" v-if="isLoggedIn()" to="/logout"
+        >Logout</router-link
+      >|
     </div>
     <router-view />
   </div>
