@@ -38,7 +38,6 @@
           type="submit"
           class="btn btn-primary"
           value="Add"
-          v-on:click="popUp()"
         />
       </form>
       <p>{{ post.body }}</p>
@@ -101,23 +100,17 @@ export default {
       axios
         .post("/api/board_posts", params)
         .then(response => {
-          this.board_post = response.data;
-          console.log(this.board_post);
-          console.log(response.data);
+          this.message = response.data.message;
+          console.log(this.message);
+          alert(this.message);
         })
         .catch(error => {
           this.errors = error.response.data.errors;
         });
     },
-    popUp: function(boardPost) {
-      var result = boardPost;
-      if (!boardPost) {
-        alert("Post already in your board!");
-      } else {
-        alert("Post added to your board!");
-      }
-      return result;
-    }
+    // popUp: function() {
+    //   alert(this.message);
+    // }
   }
 };
 </script>
