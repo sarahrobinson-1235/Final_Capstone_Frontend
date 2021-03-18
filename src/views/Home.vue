@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <h1>Daily Affirmation App</h1>
-    
+    <h1>Featured Affirmation</h1>
+
+    <p>{{ featured_quote[0].body }}</p>
+
     <h1>Recent Posts</h1>
     <router-link v-if="isLoggedIn()" to="/posts/new"
       ><button>New Post</button></router-link
@@ -61,13 +63,18 @@ export default {
       posts: [],
       search: "",
       board_id: "",
-      boards: []
+      boards: [],
+      featured_quote: ""
     };
   },
   created: function() {
     this.indexPosts();
     axios.get("api/boards/me").then(response => {
       this.boards = response.data;
+      console.log(response.data);
+    });
+    axios.get("api/quote").then(response => {
+      this.featured_quote = response.data;
       console.log(response.data);
     });
   },
