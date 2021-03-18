@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>Daily Affirmation App</h1>
+    
     <h1>Recent Posts</h1>
     <router-link v-if="isLoggedIn()" to="/posts/new"
       ><button>New Post</button></router-link
@@ -34,11 +35,7 @@
           >
           {{ board_id }}
         </div>
-        <input
-          type="submit"
-          class="btn btn-primary"
-          value="Add"
-        />
+        <input type="submit" class="btn btn-primary" value="Add" />
       </form>
       <p>{{ post.body }}</p>
       <router-link :to="`/users/${post.user.id}`">
@@ -107,7 +104,7 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
         });
-    },
+    }
     // popUp: function() {
     //   alert(this.message);
     // }

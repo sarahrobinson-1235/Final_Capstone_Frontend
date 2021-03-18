@@ -14,6 +14,8 @@ import BoardsShow from "../views/BoardsShow.vue";
 import BoardsNew from "../views/BoardsNew.vue";
 import BoardsEdit from "../views/BoardsEdit.vue";
 
+
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -91,6 +93,7 @@ const routes = [
     name: "boards-edit",
     component: BoardsEdit
   },
+  
 ];
 
 const router = new VueRouter({

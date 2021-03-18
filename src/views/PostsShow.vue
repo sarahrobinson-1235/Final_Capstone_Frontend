@@ -21,7 +21,7 @@
     <br />
     <h2>{{ post.body }}</h2>
     <p>Posted: {{ relativeDate(post.created_at) }}</p>
-    Likes: {{ post.likes }}
+    {{ post.likes }} Likes
     <router-link
       v-if="$parent.getUserId() == post.user.id"
       :to="`/posts/${post.id}/edit`"
@@ -32,12 +32,15 @@
       <p>Creator: {{ post.user.name }}</p>
     </router-link>
     <img v-bind:src="post.user.image_url" alt="" />
+
+    
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import moment from "moment";
+
 
 export default {
   data: function() {
@@ -46,7 +49,8 @@ export default {
       board_id: "",
       message: "",
       errors: [],
-      boards: []
+      boards: [],
+      
     };
   },
   created: function() {

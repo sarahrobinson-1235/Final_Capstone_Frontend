@@ -21,6 +21,7 @@
       </div>
       <input type="submit" class="btn btn-primary" value="Create Post" />
     </form>
+    
   </div>
 </template>
 
@@ -33,7 +34,7 @@ export default {
       name: "",
       body: "",
       image_url: "",
-      errors: [],
+      errors: []
     };
   },
   methods: {
@@ -41,18 +42,18 @@ export default {
       var params = {
         name: this.name,
         body: this.body,
-        image_url: this.image_url,
+        image_url: this.image_url
       };
       axios
         .post("/api/posts", params)
-        .then((response) => {
+        .then(response => {
           console.log(response.data);
           this.$router.push("/");
         })
-        .catch((error) => {
+        .catch(error => {
           this.errors = error.response.data.errors;
         });
-    },
-  },
+    }
+  }
 };
 </script>
