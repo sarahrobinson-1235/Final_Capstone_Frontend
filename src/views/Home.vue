@@ -13,7 +13,7 @@
         type="text"
         v-model="search"
         list="titles"
-        placeholder="Search..."
+        placeholder="Search Posts..."
       />
       <datalist id="titles">
         <option v-for="post in posts" v-bind:key="post.id"></option>

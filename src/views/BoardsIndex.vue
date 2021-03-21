@@ -6,7 +6,7 @@
         type="text"
         v-model="search"
         list="titles"
-        placeholder="Search..."
+        placeholder="Search Boards..."
       />
       <datalist id="titles">
         <option v-for="board in boards" v-bind:key="board.id"></option>
