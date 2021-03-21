@@ -76,7 +76,18 @@
 
       <!-- Post Feed -->
       <section id="articles" class="post-grid">
-        <div class="container">
+        <div class="input-group rounded">
+          <input
+            type="text"
+            id="form1"
+            class="form-control rounded"
+            placeholder="Search..."
+            aria-label="Search"
+            v-model="search"
+            list="titles"
+          />
+          <h1>Browse through some recent posts</h1>
+          <div class="container"></div>
           <div class="row no-sidebar">
             <!--Content Column-->
             <div class="col-md-12 flex">
@@ -90,16 +101,22 @@
                   <div class="box">
                     <div class="img-wrap">
                       <a href="blog-post.html">
-                        <img
-                          class="img-responsive"
+                        <router-link :to="`/posts/${post.id}`">
+                        <img 
+                          class="avatar img-circle img-responsive"
                           v-bind:src="post.image_url"
                           alt="01"
                         />
+                        </router-link>
                       </a>
                     </div>
                     <div class="post-detail">
                       <div class="meta-cat">
-                        <a href="#!" rel="category tag">View Post</a>
+                        <router-link
+                          :to="`/posts/${post.id}`"
+                          rel="category tag"
+                          >View Post</router-link
+                        >
                       </div>
                       <h2 class="entry-title">
                         <a href="blog-post.html">{{ post.name }}</a>
@@ -149,71 +166,6 @@
         </div>
       </section>
       <!-- /Post Feed -->
-
-      <!--Instagram Section-->
-      <section id="instagram" class="e-block-short">
-        <div class="container">
-          <div class="text-center">
-            <h3 class="font-accident-two-normal e-uppercase">
-              Enjoy My Instagram Feed
-            </h3>
-            <!--<h5 class="font-accident-one-bold e-uppercase hovercolor">Working hard and making the success</h5>-->
-            <!--<div class="e-divider-1"></div>-->
-            <p class="small color05">
-              Maecenas mattis ut mauris vel faucibus. Fusce vehicula semper
-              pulvinar. Cras blandit orci sed augue vehicula mollis.
-              <br />Interdum et malesuada fames ac ante ipsum primis in
-              faucibus.
-            </p>
-          </div>
-          <div class="e-divider-4"></div>
-          <div class="row nopadding">
-            <div class="col-md-2 col-xs-6 nopadding">
-              <img
-                src="/assets/custom/images/instagram/12328429_1661245097460326_255494091_n.jpg"
-                class="img-responsive"
-                alt="01"
-              />
-            </div>
-            <div class="col-md-2 col-xs-6 nopadding">
-              <img
-                src="/assets/custom/images/instagram/12599154_962398730508083_979241627_n.jpg"
-                class="img-responsive"
-                alt="01"
-              />
-            </div>
-            <div class="col-md-2 col-xs-6 nopadding">
-              <img
-                src="/assets/custom/images/instagram/12677660_174383292934538_1188800865_n.jpg"
-                class="img-responsive"
-                alt="01"
-              />
-            </div>
-            <div class="col-md-2 col-xs-6 nopadding">
-              <img
-                src="/assets/custom/images/instagram/12716546_444262579096572_467284739_n.jpg"
-                class="img-responsive"
-                alt="01"
-              />
-            </div>
-            <div class="col-md-2 col-xs-6 nopadding">
-              <img
-                src="/assets/custom/images/instagram/12819136_834492543346861_161860596_n.jpg"
-                class="img-responsive"
-                alt="01"
-              />
-            </div>
-            <div class="col-md-2 col-xs-6 nopadding">
-              <img
-                src="/assets/custom/images/instagram/12826108_260008874330168_1360366906_n.jpg"
-                class="img-responsive"
-                alt="01"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--/Instagram Section-->
 
       <div class="e-divider-6"></div>
       <div class="text-center">
