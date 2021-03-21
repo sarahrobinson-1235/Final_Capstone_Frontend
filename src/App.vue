@@ -25,15 +25,15 @@
             <nav
               class="collapse navbar-collapse navbar-ex1-collapse e-centered"
             >
-              <!--<i class="nav-decor-left flaticon-christmas-rose"></i>-->
+              
               <ul class="nav navbar-nav">
-                <router-link to="/">
+                <!-- <router-link to="/">
                   <img
                     class="img-circle  author-img"
                     src="../public/my_logo.png"
                     alt=""
                   />
-                </router-link>
+                </router-link> -->
                 <li>
                   <router-link to="/">Home</router-link>
                 </li>

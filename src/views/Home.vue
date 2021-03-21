@@ -1,5 +1,230 @@
 <template>
   <div class="home">
+    <!-- Content Sections -->
+    <div id="content">
+      <!--Owl Carousel-->
+      <section id="owl-carousel">
+        <div class="container">
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <div class="feat-post text-center">
+                <div class="feat-wrapper">
+                  <div class="feat-metas">
+                    <div class="ornament-divider-fullwidth">
+                      <i class="flaticon-art-9"></i>
+                    </div>
+                    <a href="#!" class="meta-cat">Featured Affirmations</a>
+                    <h2 class="font-accident-two-normal text-nowrap">
+                      {{ featured_quote[0].body }}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <img
+                src="/assets/custom/images/demo01/03.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+
+            <div class="item">
+              <div class="feat-post text-center">
+                <div class="feat-wrapper">
+                  <div class="feat-metas">
+                    <div class="ornament-divider-fullwidth">
+                      <i class="flaticon-art-9"></i>
+                    </div>
+                    <a href="#!" class="meta-cat">Featured Affirmations</a>
+                    <h2 class="font-accident-two-normal text-nowrap">
+                      {{ featured_quote[1].body }}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <img
+                src="/assets/custom/images/demo01/03.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+
+            <div class="item">
+              <div class="feat-post text-center">
+                <div class="feat-wrapper">
+                  <div class="feat-metas">
+                    <div class="ornament-divider-fullwidth">
+                      <i class="flaticon-art-9"></i>
+                    </div>
+                    <a href="#!" class="meta-cat">Featured Affirmations</a>
+                    <h2 class="font-accident-two-normal text-nowrap">
+                      {{ featured_quote[2].body }}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <img
+                src="/assets/custom/images/demo01/03.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="e-divider-6"></div>
+      </section>
+      <!--/Owl Carousel-->
+
+      <!-- Post Feed -->
+      <section id="articles" class="post-grid">
+        <div class="container">
+          <div class="row no-sidebar">
+            <!--Content Column-->
+            <div class="col-md-12 flex">
+              <div class="row row-flex row-flex-wrap">
+                <article
+                  v-for="post in filterBy(posts, search)"
+                  v-bind:key="post.id"
+                  id="04"
+                  class="post-block col-md-4 post hentry"
+                >
+                  <div class="box">
+                    <div class="img-wrap">
+                      <a href="blog-post.html">
+                        <img
+                          class="img-responsive"
+                          v-bind:src="post.image_url"
+                          alt="01"
+                        />
+                      </a>
+                    </div>
+                    <div class="post-detail">
+                      <div class="meta-cat">
+                        <a href="#!" rel="category tag">View Post</a>
+                      </div>
+                      <h2 class="entry-title">
+                        <a href="blog-post.html">{{ post.name }}</a>
+                      </h2>
+                      <div class="metas">
+                        Posted:
+                        {{ relativeDate(post.created_at) }} /
+                        <router-link
+                          :to="`/users/${post.user.id}`"
+                          rel="category tag"
+                          >Creator: {{ post.user.name }} &nbsp;
+                        </router-link>
+                      </div>
+                    </div>
+                    <blockquote>
+                      {{ post.body }}
+                      <footer>{{ post.user.name }}</footer>
+                    </blockquote>
+                    <div class="post-excerpt"></div>
+                    <div class="continue-btn">
+                      <a
+                        href="blog-post.html"
+                        class="btn btn-default tf-btn txt-link btn-rose-str"
+                        >Continue reading...</a
+                      >
+                    </div>
+                  </div>
+                </article>
+
+                <!--Pagination-->
+                <div class="col-md-12">
+                  <div id="tf-pagination">
+                    <nav class="wp-pagenavi">
+                      <span class="page-numbers current">1</span>
+                      <a class="page-numbers" href="#!">2</a>
+                      <a class="next page-numbers" href="#!">
+                        <i class="fa fa-angle-double-right"></i>
+                      </a>
+                    </nav>
+                  </div>
+                </div>
+                <!--/Pagination-->
+              </div>
+            </div>
+            <!--/Content Column-->
+          </div>
+        </div>
+      </section>
+      <!-- /Post Feed -->
+
+      <!--Instagram Section-->
+      <section id="instagram" class="e-block-short">
+        <div class="container">
+          <div class="text-center">
+            <h3 class="font-accident-two-normal e-uppercase">
+              Enjoy My Instagram Feed
+            </h3>
+            <!--<h5 class="font-accident-one-bold e-uppercase hovercolor">Working hard and making the success</h5>-->
+            <!--<div class="e-divider-1"></div>-->
+            <p class="small color05">
+              Maecenas mattis ut mauris vel faucibus. Fusce vehicula semper
+              pulvinar. Cras blandit orci sed augue vehicula mollis.
+              <br />Interdum et malesuada fames ac ante ipsum primis in
+              faucibus.
+            </p>
+          </div>
+          <div class="e-divider-4"></div>
+          <div class="row nopadding">
+            <div class="col-md-2 col-xs-6 nopadding">
+              <img
+                src="/assets/custom/images/instagram/12328429_1661245097460326_255494091_n.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+            <div class="col-md-2 col-xs-6 nopadding">
+              <img
+                src="/assets/custom/images/instagram/12599154_962398730508083_979241627_n.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+            <div class="col-md-2 col-xs-6 nopadding">
+              <img
+                src="/assets/custom/images/instagram/12677660_174383292934538_1188800865_n.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+            <div class="col-md-2 col-xs-6 nopadding">
+              <img
+                src="/assets/custom/images/instagram/12716546_444262579096572_467284739_n.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+            <div class="col-md-2 col-xs-6 nopadding">
+              <img
+                src="/assets/custom/images/instagram/12819136_834492543346861_161860596_n.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+            <div class="col-md-2 col-xs-6 nopadding">
+              <img
+                src="/assets/custom/images/instagram/12826108_260008874330168_1360366906_n.jpg"
+                class="img-responsive"
+                alt="01"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/Instagram Section-->
+
+      <div class="e-divider-6"></div>
+      <div class="text-center">
+        <div class="ornament-divider-fullwidth">
+          <i class="flaticon-art-3"></i>
+        </div>
+      </div>
+      <div class="e-divider-4"></div>
+    </div>
+    <!-- /Content Sections -->
+
     <h1>Featured Affirmation</h1>
 
     <p>{{ featured_quote[0].body }}</p>
@@ -64,7 +289,7 @@ export default {
       search: "",
       board_id: "",
       boards: [],
-      featured_quote: ""
+      featured_quote: []
     };
   },
   created: function() {
