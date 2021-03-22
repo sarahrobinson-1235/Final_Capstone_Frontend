@@ -27,6 +27,15 @@
                 </div>
               </div>
               <div class="e-divider-8"></div>
+              <ul>
+                <li
+                  class="text-danger"
+                  v-for="error in errors"
+                  v-bind:key="error"
+                >
+                  {{ error }}
+                </li>
+              </ul>
 
               <div class="inner-content"></div>
             </article>

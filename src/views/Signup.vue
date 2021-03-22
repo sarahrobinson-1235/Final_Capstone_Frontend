@@ -72,7 +72,7 @@
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Your Name..."
+                    placeholder="I'd suggest 'Queen of the Chocolate Rivers' but that's just me..."
                     required
                     v-model="name"
                   />
