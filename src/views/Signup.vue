@@ -111,7 +111,6 @@
                 </div>
                 <div class="e-divider-2"></div>
                 <div class="field">
-                  
                   <input
                     type="text"
                     placeholder="Add a picture..."
@@ -162,7 +161,7 @@ export default {
       password: "",
       image_url: "",
       passwordConfirmation: "",
-      errors: []
+      errors: [],
     };
   },
   methods: {
@@ -171,18 +170,18 @@ export default {
         name: this.name,
         email: this.email,
         password: this.password,
-        password_confirmation: this.passwordConfirmation
+        password_confirmation: this.passwordConfirmation,
       };
       axios
         .post("/api/users", params)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
           this.$router.push("/login");
         })
-        .catch(error => {
+        .catch((error) => {
           this.errors = error.response.data.errors;
         });
-    }
-  }
+    },
+  },
 };
 </script>

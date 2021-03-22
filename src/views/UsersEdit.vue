@@ -119,7 +119,7 @@
                 <div class="e-divider-2"></div>
 
                 <div class="field text-center">
-                  <button type="submit" class="btn btn-success" value="Submit">
+                  <button type="submit" class="btn btn-rose" value="Submit">
                     Confirm Changes!
                   </button>
                 </div>
@@ -166,11 +166,11 @@ export default {
   data: function() {
     return {
       user: {},
-      errors: []
+      errors: [],
     };
   },
   created: function() {
-    axios.get(`/api/users/${this.$route.params.id}`).then(response => {
+    axios.get(`/api/users/${this.$route.params.id}`).then((response) => {
       this.user = response.data;
       console.log(this.user);
     });
@@ -182,27 +182,27 @@ export default {
         email: this.user.email,
         image_url: this.user.image_url,
         password: this.user.password,
-        password_confirmation: this.user.password_confirmation
+        password_confirmation: this.user.password_confirmation,
       };
       axios
         .patch(`/api/users/${this.user.id}`, params)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
 
           this.$router.push(`/users/${this.user.id}`);
         })
-        .catch(error => {
+        .catch((error) => {
           this.errors = error.response.data.errors;
         });
     },
     destroyUser: function() {
       if (confirm("Are you sure you want to delete your profile?")) {
-        axios.delete(`/api/users/${this.user.id}`).then(response => {
+        axios.delete(`/api/users/${this.user.id}`).then((response) => {
           console.log(response.data);
           this.$router.push("/posts");
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>

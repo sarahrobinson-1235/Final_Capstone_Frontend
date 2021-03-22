@@ -2,66 +2,72 @@
   <div id="app">
     <!-- Header -->
     <header class="cbp-af-header toggled">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button
-              type="button"
-              class="navbar-toggle"
-              data-toggle="collapse"
-              data-target=".navbar-ex1-collapse"
-            >
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+      <div class="cbp-af-inner">
+        <div class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <h1 class="text-center">
+                <a href="index.html">Lovely Affirmations</a>
+              </h1>
+              <span class="small subtitle"
+                ><span class="lined"
+                  >Positive Affirmations For Daily Life</span
+                ></span
+              >
+              <button
+                type="button"
+                class="navbar-toggle"
+                data-toggle="collapse"
+                data-target=".navbar-ex1-collapse"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="container">
-          <div class="bordered">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <nav
-              class="collapse navbar-collapse navbar-ex1-collapse e-centered"
-            >
-              
-              <ul class="nav navbar-nav">
-                <!-- <router-link to="/">
-                  <img
-                    class="img-circle  author-img"
-                    src="../public/my_logo.png"
-                    alt=""
-                  />
-                </router-link> -->
-                <li>
-                  <router-link to="/">Home</router-link>
-                </li>
-                <li v-if="isLoggedIn()">
-                  <router-link to="/boards">Boards</router-link>
-                </li>
-                <li v-if="!isLoggedIn()">
-                  <router-link to="/signup">Signup</router-link>
-                </li>
-                <li v-if="!isLoggedIn()">
-                  <router-link to="/login">Login</router-link>
-                </li>
-                <li v-if="isLoggedIn()">
-                  <router-link :to="`/users/${getUserId()}`"
-                    >Profile</router-link
-                  >
-                </li>
-                <li v-if="isLoggedIn()">
-                  <router-link to="/logout">Logout</router-link>
-                </li>
-              </ul>
-            </nav>
+          <div class="container">
+            <div class="bordered">
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <nav
+                class="collapse navbar-collapse navbar-ex1-collapse e-centered"
+              >
+                <ul class="nav navbar-nav">
+                  <li>
+                    <router-link to="/">Home</router-link>
+                  </li>
+                  <li v-if="isLoggedIn()">
+                    <router-link to="/posts/new">New Post</router-link>
+                  </li>
+                  <li v-if="isLoggedIn()">
+                    <router-link to="/boards">Boards</router-link>
+                  </li>
+                  <li v-if="!isLoggedIn()">
+                    <router-link to="/signup">Signup</router-link>
+                  </li>
+                  <li v-if="!isLoggedIn()">
+                    <router-link to="/login">Login</router-link>
+                  </li>
+                  <li v-if="isLoggedIn()">
+                    <router-link :to="`/users/${getUserId()}`"
+                      >Profile</router-link
+                    >
+                  </li>
+                  <li v-if="isLoggedIn()">
+                    <router-link to="/logout">Logout</router-link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="e-divider-1 bg-color00"></div>
           </div>
-          <div class="e-divider-1 bg-color00"></div>
         </div>
       </div>
     </header>
     <!-- / Header -->
+
     <!-- Content Sections -->
     <div id="content">
       <!-- Vue Templates Injected Here -->
@@ -199,29 +205,6 @@
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
-
 <script>
 export default {
   data: function() {
@@ -233,7 +216,7 @@ export default {
     },
     getUserId: function() {
       return localStorage.user_id;
-    }
-  }
+    },
+  },
 };
 </script>
