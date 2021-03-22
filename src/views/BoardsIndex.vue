@@ -3,11 +3,20 @@
     <section id="articles" class="post-grid">
       <div class="container">
         <div class="row no-sidebar">
-          <div class="page-detail text-center">
-            <h2 class="entry-title page-title">
-              Browse Through Boards Created By Our Members..
-            </h2>
-          </div>
+          <article id="01" class="page-block col-md-12 page hentry">
+            <div class="e-divider-2"></div>
+            <div class="page-detail text-center">
+              <h2 class="entry-title page-title">
+                Browse Through Boards Created By Our Members..
+              </h2>
+            </div>
+            <div class="e-divider-2"></div>
+            <div class="text-center">
+              <div class="ornament-divider-fullwidth">
+                <i class="flaticon-art-3"></i>
+              </div>
+            </div>
+          </article>
 
           <!-- Search Box -->
           <div class="container">
