@@ -87,7 +87,7 @@
                   />
                 </div>
                 <div class="e-divider-1"></div>
-              
+
                 <div class="field">
                   <!--<label for="message">Message:</label>-->
                   <input
@@ -103,29 +103,23 @@
                   <input
                     type="password"
                     placeholder="New Password..."
-                    
                     v-model="user.password"
                   />
                 </div>
-                
+
                 <div class="e-divider-1"></div>
-                  <div class="field">
+                <div class="field">
                   <!--<label for="message">Message:</label>-->
                   <input
                     type="password"
                     placeholder="Confirm password..."
-                    
                     v-model="user.password_confirmation"
                   />
                 </div>
                 <div class="e-divider-2"></div>
 
                 <div class="field text-center">
-                  <button
-                    type="submit"
-                    class="btn btn-success"
-                    value="Submit"
-                  >
+                  <button type="submit" class="btn btn-success" value="Submit">
                     Confirm Changes!
                   </button>
                 </div>
