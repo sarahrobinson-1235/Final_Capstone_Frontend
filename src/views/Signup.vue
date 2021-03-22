@@ -110,6 +110,15 @@
                   />
                 </div>
                 <div class="e-divider-2"></div>
+                <div class="field">
+                  
+                  <input
+                    type="text"
+                    placeholder="Add a picture..."
+                    v-model="image_url"
+                  />
+                </div>
+                <div class="e-divider-1"></div>
 
                 <div class="field text-center">
                   <button
@@ -151,6 +160,7 @@ export default {
       name: "",
       email: "",
       password: "",
+      image_url: "",
       passwordConfirmation: "",
       errors: []
     };

@@ -86,6 +86,13 @@
             v-model="search"
             list="titles"
           />
+          <router-link to="/posts/new"
+            ><input
+              class="newsletter-submit btn btn-rose"
+              type="submit"
+              value="Create New Post"
+            />
+          </router-link>
           <h1>Recent Posts</h1>
           <div class="container"></div>
           <div class="row no-sidebar">

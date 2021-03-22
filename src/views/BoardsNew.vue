@@ -12,10 +12,8 @@
               <div class="e-divider-2"></div>
               <div class="page-detail text-center">
                 <h2 class="entry-title page-title">
-                  <a href="#!"
-                    >Here you can create endless collections of yours and
-                    others' posts...</a
-                  >
+                  Here you can create endless collections of yours and others'
+                  posts...
                 </h2>
                 <div class="metas">
                   All positivity and high vibrations welcome&nbsp;
