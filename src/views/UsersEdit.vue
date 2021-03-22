@@ -102,8 +102,8 @@
                   <!--<label for="message">Message:</label>-->
                   <input
                     type="password"
-                    placeholder="Enter password or create a new one..."
-                    required
+                    placeholder="New Password..."
+                    
                     v-model="user.password"
                   />
                 </div>
@@ -114,7 +114,7 @@
                   <input
                     type="password"
                     placeholder="Confirm password..."
-                    required
+                    
                     v-model="user.password_confirmation"
                   />
                 </div>
@@ -123,7 +123,7 @@
                 <div class="field text-center">
                   <button
                     type="submit"
-                    class="btn btn-lg btn-blk"
+                    class="btn btn-success"
                     value="Submit"
                   >
                     Confirm Changes!
@@ -132,7 +132,7 @@
                 <div class="field text-center">
                   <button
                     type="submit"
-                    class="btn btn-lg btn-blk"
+                    class="btn btn-danger"
                     value="Submit"
                     v-on:click="destroyUser()"
                   >
@@ -161,36 +161,6 @@
       <div class="e-divider-4"></div>
     </div>
     <!-- /Content Sections -->
-
-    <form v-on:submit.prevent="updateUser()">
-      <h1>Update Your Profile Below!</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="user.name" />
-      </div>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="text" class="form-control" v-model="user.email" />
-      </div>
-      <div class="form-group">
-        <label>Change Password:</label>
-        <input type="password" class="form-control" v-model="user.password" />
-      </div>
-      <div class="form-group">
-        <label>Profile Pic:</label>
-        <input type="text" class="form-control" v-model="user.image_url" />
-      </div>
-      <div>
-        <img :src="user.image_url" alt="" />
-      </div>
-      <input type="submit" class="btn btn-primary" value="Save Changes" />
-      <button v-on:click="destroyUser()">Delete Profile</button>
-    </form>
   </div>
 </template>
 <style></style>
