@@ -15,8 +15,9 @@
                   <a href="#!">Login</a>
                 </h2>
                 <div class="metas">
-                  
-                  <router-link to="/signup">Don't have an account yet?</router-link>&nbsp;
+                  <router-link to="/signup"
+                    >Don't have an account yet?</router-link
+                  >&nbsp;
                 </div>
               </div>
               <div class="e-divider-2"></div>
@@ -51,7 +52,8 @@
             <div class="col-md-12 e-centered">
               <div class="e-divider-2"></div>
               <div id="form-messages"></div>
-              <form v-on:submit.prevent="submit()"
+              <form
+                v-on:submit.prevent="submit()"
                 id="ajax-contact"
                 method="post"
                 action="assets/custom/php/form.php"

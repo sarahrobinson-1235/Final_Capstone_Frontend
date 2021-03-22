@@ -3,6 +3,13 @@
     <!-- Content Sections -->
     <div id="content">
       <!-- Articles -->
+      <div class="e-divider-10"></div>
+      <router-link
+        v-if="!$parent.isLoggedIn()"
+        to="/signup"
+        class="btn btn-small btn-rose-str"
+        >Log In to Access</router-link
+      >
       <section id="articles" class="">
         <div class="container">
           <div class="row has-sidebar-right">
@@ -46,14 +53,6 @@
                       </blockquote>
                     </div>
                   </section>
-
-                  <div class="e-divider-10"></div>
-                  <router-link
-                    v-if="!$parent.isLoggedIn()"
-                    to="/signup"
-                    class="btn btn-small btn-rose-str"
-                    >Log In to Access</router-link
-                  >
 
                   <!--Author-info-->
                   <section class="author-info">
