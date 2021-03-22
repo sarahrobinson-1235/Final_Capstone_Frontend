@@ -34,6 +34,9 @@
                       {{ post.likes }}
                     </div>
                   </div>
+                  <router-link v-if="owner()" :to="`/posts/${post.id}/edit`"
+        ><button class="newsletter-submit btn btn-rose">Edit Post</button></router-link
+      >
                   <div class="img-wrap">
                     <img
                       class="img-responsive"
@@ -182,6 +185,9 @@ export default {
     });
   },
   methods: {
+    owner: function() {
+      return this.$parent.getUserId() == this.post.user.id;
+    },
     relativeDate: function(date) {
       return moment(date).fromNow();
     },
