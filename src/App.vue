@@ -44,6 +44,9 @@
                   <li v-if="isLoggedIn()">
                     <router-link to="/boards">Boards</router-link>
                   </li>
+                  <li v-if="isLoggedIn()">
+                    <router-link to="/boards/new">New Board</router-link>
+                  </li>
                   <li v-if="!isLoggedIn()">
                     <router-link to="/signup">Signup</router-link>
                   </li>

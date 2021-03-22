@@ -5,6 +5,7 @@
         <div class="row no-sidebar">
           <article id="01" class="page-block col-md-12 page hentry">
             <div class="e-divider-2"></div>
+
             <div class="page-detail text-center">
               <h2 class="entry-title page-title">
                 Browse Through Boards Created By Our Members..
@@ -35,6 +36,7 @@
             </div>
           </div>
           <!-- /Search Box -->
+
           <!--Content Column-->
           <div class="col-md-12 flex">
             <div class="row row-flex row-flex-wrap">

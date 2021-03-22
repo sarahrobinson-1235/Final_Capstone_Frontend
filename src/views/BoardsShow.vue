@@ -4,6 +4,27 @@
     <section id="articles" class="">
       <div class="container">
         <div class="row no-sidebar">
+          <article id="01" class="page-block col-md-12 page hentry">
+            <div class="e-divider-2"></div>
+
+            <div class="page-detail text-center">
+              <h2 class="entry-title page-title">
+                {{ board.title }} <br />{{ board.description }} <br />
+                <router-link
+                  v-if="$parent.getUserId() == board.user.id"
+                  :to="`/boards/${board.id}/edit`"
+                  class="newsletter-submit btn btn-rose"
+                  >Edit Board</router-link
+                >
+              </h2>
+            </div>
+            <div class="e-divider-2"></div>
+            <div class="text-center">
+              <div class="ornament-divider-fullwidth">
+                <i class="flaticon-art-3"></i>
+              </div>
+            </div>
+          </article>
           <!--Content Column-->
           <div class="col-md-12">
             <div class="row">
@@ -14,14 +35,6 @@
                 class="post-block col-md-12 post hentry"
               >
                 <div class="post-detail">
-                  <div
-                    class="meta-cat col-md-12
-                  "
-                  >
-                    <a rel="category tag"
-                      >{{ board.title }} ~ {{ board.description }}
-                    </a>
-                  </div>
                   <h2 class="entry-title">
                     <router-link :to="`/posts/${boardPost.post.id}`">{{
                       boardPost.post.name
