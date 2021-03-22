@@ -15,7 +15,7 @@
                     </div>
                     <a href="#!" class="meta-cat">Featured Affirmations</a>
                     <h2 class="font-accident-two-normal text-nowrap">
-                      {{ featured_quote[0].body }}
+                      "{{ featured_quote[0].body }}"
                     </h2>
                   </div>
                 </div>
@@ -36,7 +36,7 @@
                     </div>
                     <a href="#!" class="meta-cat">Featured Affirmations</a>
                     <h2 class="font-accident-two-normal text-nowrap">
-                      {{ featured_quote[1].body }}
+                      "{{ featured_quote[1].body }}"
                     </h2>
                   </div>
                 </div>
@@ -57,7 +57,7 @@
                     </div>
                     <a href="#!" class="meta-cat">Featured Affirmations</a>
                     <h2 class="font-accident-two-normal text-nowrap">
-                      {{ featured_quote[2].body }}
+                      "{{ featured_quote[2].body }}"
                     </h2>
                   </div>
                 </div>
@@ -86,7 +86,7 @@
             v-model="search"
             list="titles"
           />
-          <h1>Browse through some recent posts</h1>
+          <h1>Recent Posts</h1>
           <div class="container"></div>
           <div class="row no-sidebar">
             <!--Content Column-->
@@ -145,20 +145,6 @@
                     </div>
                   </div>
                 </article>
-
-                <!--Pagination-->
-                <div class="col-md-12">
-                  <div id="tf-pagination">
-                    <nav class="wp-pagenavi">
-                      <span class="page-numbers current">1</span>
-                      <a class="page-numbers" href="#!">2</a>
-                      <a class="next page-numbers" href="#!">
-                        <i class="fa fa-angle-double-right"></i>
-                      </a>
-                    </nav>
-                  </div>
-                </div>
-                <!--/Pagination-->
               </div>
             </div>
             <!--/Content Column-->
@@ -176,52 +162,6 @@
       <div class="e-divider-4"></div>
     </div>
     <!-- /Content Sections -->
-
-    <h1>Featured Affirmation</h1>
-
-    <p>{{ featured_quote[0].body }}</p>
-
-    <h1>Recent Posts</h1>
-    <router-link v-if="isLoggedIn()" to="/posts/new"
-      ><button>New Post</button></router-link
-    >
-    <div>
-      <input
-        type="text"
-        v-model="search"
-        list="titles"
-        placeholder="Search Posts..."
-      />
-      <datalist id="titles">
-        <option v-for="post in posts" v-bind:key="post.id"></option>
-      </datalist>
-    </div>
-    <div v-for="post in filterBy(posts, search)" v-bind:key="post.id">
-      <h2>{{ post.name }}</h2>
-      <router-link :to="`/posts/${post.id}`">
-        <img v-bind:src="post.image_url" alt="" />
-      </router-link>
-      <form v-on:submit.prevent="createBoardPost(post)">
-        <div class="form-group">
-          <label>Choose a Board: </label>
-          <select v-model="board_id" id=""
-            ><option
-              :value="board.id"
-              v-for="board in boards"
-              v-bind:key="board.id"
-              >{{ board.title }}</option
-            ></select
-          >
-          {{ board_id }}
-        </div>
-        <input type="submit" class="btn btn-primary" value="Add" />
-      </form>
-      <p>{{ post.body }}</p>
-      <router-link :to="`/users/${post.user.id}`">
-        <p>By: {{ post.user.name }}</p>
-      </router-link>
-      <p>Posted:{{ relativeDate(post.created_at) }}</p>
-    </div>
   </div>
 </template>
 <style></style>
