@@ -13,8 +13,7 @@ import BoardsIndex from "../views/BoardsIndex.vue";
 import BoardsShow from "../views/BoardsShow.vue";
 import BoardsNew from "../views/BoardsNew.vue";
 import BoardsEdit from "../views/BoardsEdit.vue";
-
-
+import vueScrollBehavior from "vue-scroll-behavior";
 
 Vue.use(VueRouter);
 
@@ -92,8 +91,7 @@ const routes = [
     path: "/boards/:id/edit",
     name: "boards-edit",
     component: BoardsEdit
-  },
-  
+  }
 ];
 
 const router = new VueRouter({
@@ -101,5 +99,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+Vue.use(vueScrollBehavior, { router: router });
 
 export default router;

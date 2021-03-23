@@ -63,7 +63,7 @@
                     </h2>
                     <div class="metas">
                       Updated:
-                      {{ relativeDate(board.updated_at) }}/&nbsp; Posted by:
+                      {{ relativeDate(board.updated_at) }}/&nbsp; Creator:
                       <router-link :to="`/users/${board.user.id}`">{{
                         board.user.name
                       }}</router-link

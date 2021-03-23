@@ -134,9 +134,6 @@
                   Delete Profile
                 </button>
               </div>
-              <div>
-                <img :src="user.image_url" alt="" />
-              </div>
             </form>
           </div>
         </div>

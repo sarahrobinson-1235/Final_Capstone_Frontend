@@ -9,7 +9,7 @@
             <div class="page-detail text-center">
               <h2 class="entry-title page-title">
                 <h4 class="entry-title page-title">Featured Quote</h4>
-                {{ featured_quote[0].body }}
+                "{{ featured_quote[0].body }}"
               </h2>
             </div>
             <div class="e-divider-2"></div>
