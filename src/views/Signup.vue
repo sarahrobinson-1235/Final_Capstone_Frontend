@@ -70,7 +70,7 @@
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Create a User Name..."
+                  placeholder="Create a Screen Name..."
                   required
                   v-model="name"
                 />
@@ -163,6 +163,7 @@ export default {
         email: this.email,
         password: this.password,
         password_confirmation: this.passwordConfirmation,
+        image_url: this.image_url,
       };
       axios
         .post("/api/users", params)
