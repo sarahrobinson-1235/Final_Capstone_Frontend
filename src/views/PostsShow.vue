@@ -82,8 +82,6 @@
                     </p>
                   </div>
                 </section>
-
-                <div class="e-divider-8"></div>
               </article>
             </div>
           </div>
