@@ -122,6 +122,7 @@
                         value="Add to Board"
                       />
                     </p>
+                    <!-- {{ this.message }} -->
                     <div class="e-divider-8"></div>
                     <p>
                       <router-link to="/boards/new"
