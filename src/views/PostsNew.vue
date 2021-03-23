@@ -11,7 +11,7 @@
                 Be Creative..Be Expressive
               </h2>
               <div class="metas">
-                All positivity and high vibrations welcome&nbsp;
+                All positivity & high vibrations welcome&nbsp;
               </div>
             </div>
             <div class="e-divider-2"></div>

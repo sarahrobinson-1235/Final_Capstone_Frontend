@@ -1,7 +1,6 @@
 <template>
   <div class="posts-show">
     <!-- Articles -->
-    <div class="e-divider-10"></div>
     <router-link
       v-if="!$parent.isLoggedIn()"
       to="/signup"

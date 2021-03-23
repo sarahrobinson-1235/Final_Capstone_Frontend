@@ -12,7 +12,7 @@
               </h1>
               <span class="small subtitle"
                 ><span class="lined"
-                  >Positive Affirmations For Daily Life</span
+                  >All positivity & high vibrations welcome</span
                 ></span
               >
               <button

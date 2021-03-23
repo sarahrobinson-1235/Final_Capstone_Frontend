@@ -9,14 +9,17 @@
 
             <div class="page-detail text-center">
               <h2 class="entry-title page-title">
-                {{ board.title }} <br />{{ board.description }} <br />
-                <router-link
-                  v-if="$parent.getUserId() == board.user.id"
-                  :to="`/boards/${board.id}/edit`"
-                  class="newsletter-submit btn btn-rose"
-                  >Edit Board</router-link
-                >
+                {{ board.title }} <br />
+                <h3 class="entry-title page-title">
+                  '{{ board.description }}'
+                </h3>
               </h2>
+              <router-link
+                v-if="$parent.getUserId() == board.user.id"
+                :to="`/boards/${board.id}/edit`"
+                class="newsletter-submit btn btn-rose"
+                >Edit Board</router-link
+              >
             </div>
             <div class="e-divider-2"></div>
             <div class="text-center">

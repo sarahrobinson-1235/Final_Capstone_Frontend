@@ -1,7 +1,11 @@
 <template>
   <div class="boards-new">
-    <div class="e-divider-2"></div>
-
+    <router-link
+      v-if="!$parent.isLoggedIn()"
+      to="/signup"
+      class="btn btn-small btn-rose-str"
+      >Log In to Access</router-link
+    >
     <!-- Page Content -->
     <section id="articles" class="">
       <div class="container">
@@ -14,7 +18,7 @@
                 posts...
               </h2>
               <div class="metas">
-                All positivity and high vibrations welcome&nbsp;
+                All positivity & high vibrations welcome&nbsp;
               </div>
             </div>
             <div class="e-divider-2"></div>

@@ -13,7 +13,7 @@
                 <a href="#!">Join Our Community!</a>
               </h2>
               <div class="metas">
-                All positivity and high vibrations welcome&nbsp;
+                All positivity & high vibrations welcome&nbsp;
               </div>
             </div>
             <div class="e-divider-2"></div>
@@ -70,7 +70,7 @@
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="I'd suggest 'Queen of the Chocolate Rivers' but that's just me..."
+                  placeholder="Create a User Name..."
                   required
                   v-model="name"
                 />

@@ -12,6 +12,9 @@
               <h2 class="entry-title page-title">
                 <a href="#!">Update Your Profile Below</a>
               </h2>
+              <div class="metas">
+                All positivity & high vibrations welcome&nbsp;
+              </div>
             </div>
             <div class="e-divider-2"></div>
             <div class="text-center">
@@ -118,13 +121,13 @@
 
               <div class="field text-center">
                 <button type="submit" class="btn btn-rose" value="Submit">
-                  Confirm Changes!
+                  Confirm Changes
                 </button>
               </div>
               <div class="field text-center">
                 <button
                   type="submit"
-                  class="btn btn-danger"
+                  class="btn btn-blk"
                   value="Submit"
                   v-on:click="destroyUser()"
                 >
@@ -195,7 +198,10 @@ export default {
       if (confirm("Are you sure you want to delete your profile?")) {
         axios.delete(`/api/users/${this.user.id}`).then((response) => {
           console.log(response.data);
-          this.$router.push("/posts");
+          delete axios.defaults.headers.common["Authorization"];
+          localStorage.removeItem("jwt");
+          localStorage.removeItem("user_id");
+          this.$router.push("/");
         });
       }
     },

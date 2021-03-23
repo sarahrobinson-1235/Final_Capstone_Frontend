@@ -10,7 +10,10 @@
             <div class="e-divider-2"></div>
             <div class="page-detail text-center">
               <h2 class="entry-title page-title">
-                <a href="#!">Need To Make A Change?</a>
+                Need To Make A Change?
+                <div class="metas">
+                  All positivity & high vibrations welcome&nbsp;
+                </div>
               </h2>
             </div>
             <div class="e-divider-2"></div>
@@ -107,7 +110,7 @@
                 <div class="field text-center">
                   <button
                     type="submit"
-                    class="btn btn-danger"
+                    class="btn btn-blk"
                     value="Submit"
                     v-on:click="destroyPost()"
                   >

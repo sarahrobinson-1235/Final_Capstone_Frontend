@@ -8,6 +8,43 @@
           <div class="col-md-8 pull-left">
             <div class="row">
               <article
+                v-for="board in boards"
+                v-bind:key="board.id"
+                id="02"
+                class="post-block col-md-12 post hentry"
+              >
+                <div class="post-detail">
+                  <div class="meta-cat">
+                    <a href="#!" rel="category tag">Blogging &nbsp;/</a>&nbsp;<a
+                      href="#!"
+                      rel="category tag"
+                      >Leadership</a
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="blog-post.html">{{ board.title }}</a>
+                  </h2>
+                  <div class="metas">
+                    Updated: {{ relativeDate(board.updated_at) }}/ Posted by:
+                    {{ user.name }}
+                  </div>
+                </div>
+
+                <div class="post-excerpt">
+                  <p>
+                    {{ board.description }}
+                  </p>
+                </div>
+                <div class="">
+                  <a
+                    href="blog-post.html"
+                    class="btn btn-default tf-btn txt-link btn-rose-str"
+                    >See More</a
+                  >
+                </div>
+              </article>
+
+              <article
                 v-for="post in posts"
                 v-bind:key="post.id"
                 id="04"
@@ -51,43 +88,6 @@
                   >
                 </div>
               </article>
-
-              <article
-                v-for="board in boards"
-                v-bind:key="board.id"
-                id="02"
-                class="post-block col-md-12 post hentry"
-              >
-                <div class="post-detail">
-                  <div class="meta-cat">
-                    <a href="#!" rel="category tag">Blogging &nbsp;/</a>&nbsp;<a
-                      href="#!"
-                      rel="category tag"
-                      >Leadership</a
-                    >
-                  </div>
-                  <h2 class="entry-title">
-                    <a href="blog-post.html">{{ board.title }}</a>
-                  </h2>
-                  <div class="metas">
-                    Updated: {{ relativeDate(board.updated_at) }}/ Posted by:
-                    {{ user.name }}
-                  </div>
-                </div>
-
-                <div class="post-excerpt">
-                  <p>
-                    {{ board.description }}
-                  </p>
-                </div>
-                <div class="">
-                  <a
-                    href="blog-post.html"
-                    class="btn btn-default tf-btn txt-link btn-rose-str"
-                    >See More</a
-                  >
-                </div>
-              </article>
             </div>
           </div>
           <!--/Content Column-->
@@ -105,12 +105,19 @@
                     alt="01"
                   />
                   <div class="e-divider-3"></div>
+                  <h3>{{ user.email }}</h3>
+                  <div class="e-divider-3"></div>
                   <h5 class="hello">Hey I'm {{ user.name }} !</h5>
                   <h5 class="hello">
                     Thanks for checking out my page
                   </h5>
 
                   <div class="e-divider-2"></div>
+                  <router-link v-if="owner()" :to="`/users/${user.id}/edit`"
+                    ><button class="newsletter-submit btn btn-rose">
+                      Edit Profile
+                    </button></router-link
+                  >
                 </div>
                 <div class="clearfix"></div>
               </aside>
