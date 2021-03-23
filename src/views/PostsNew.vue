@@ -20,7 +20,6 @@
                 <i class="flaticon-art-3"></i>
               </div>
             </div>
-            <div class="e-divider-8"></div>
             <ul>
               <li
                 class="text-danger"

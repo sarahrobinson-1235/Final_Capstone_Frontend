@@ -20,7 +20,7 @@
                     }}</router-link>
                   </h2>
                   <div class="metas">
-                    Updated: {{ relativeDate(board.updated_at) }}/ Posted by:
+                    Created: {{ relativeDate(board.updated_at) }}/ Posted by:
                     {{ user.name }}
                   </div>
                 </div>

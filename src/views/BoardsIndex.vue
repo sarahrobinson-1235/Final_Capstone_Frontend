@@ -48,10 +48,13 @@
               >
                 <div class="box">
                   <div class="img-wrap">
-                    <router-link :to="`/boards/${board.id}`"
+                    <router-link
+                      class="btn btn-default tf-btn txt-link
+                    btn-rose-str"
+                      :to="`/boards/${board.id}`"
                       ><img
                         class="img-responsive"
-                        v-bind:src="board.user.image_url"
+                        v-bind:src="board.board_posts[0].post.image_url"
                         alt=""
                     /></router-link>
                   </div>
@@ -62,7 +65,7 @@
                       }}</router-link>
                     </h2>
                     <div class="metas">
-                      Updated:
+                      Created:
                       {{ relativeDate(board.updated_at) }}/&nbsp; Creator:
                       <router-link :to="`/users/${board.user.id}`">{{
                         board.user.name

@@ -56,7 +56,11 @@
               >
                 <div class="box">
                   <div class="img-wrap">
-                    <router-link :to="`/posts/${post.id}`">
+                    <router-link
+                      :to="`/posts/${post.id}`"
+                      class="btn btn-default tf-btn txt-link
+                    btn-rose-str"
+                    >
                       <img
                         class="img-responsive"
                         v-bind:src="post.image_url"
