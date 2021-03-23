@@ -14,15 +14,10 @@
                 class="post-block col-md-12 post hentry"
               >
                 <div class="post-detail">
-                  <div class="meta-cat">
-                    <a href="#!" rel="category tag">Blogging &nbsp;/</a>&nbsp;<a
-                      href="#!"
-                      rel="category tag"
-                      >Leadership</a
-                    >
-                  </div>
                   <h2 class="entry-title">
-                    <a href="blog-post.html">{{ board.title }}</a>
+                    <router-link :to="`/boards/${board.id}`">{{
+                      board.title
+                    }}</router-link>
                   </h2>
                   <div class="metas">
                     Updated: {{ relativeDate(board.updated_at) }}/ Posted by:
@@ -36,10 +31,10 @@
                   </p>
                 </div>
                 <div class="">
-                  <a
-                    href="blog-post.html"
+                  <router-link
+                    :to="`/boards/${board.id}`"
                     class="btn btn-default tf-btn txt-link btn-rose-str"
-                    >See More</a
+                    >See More</router-link
                   >
                 </div>
               </article>
@@ -129,41 +124,6 @@
       </div>
     </section>
     <!-- /Post Feed -->
-
-    <div>
-      <h1>{{ user.name }}</h1>
-      <p>{{ user.email }}</p>
-      <router-link v-if="owner()" :to="`/users/${user.id}/edit`"
-        ><button>Edit Profile</button>
-      </router-link>
-    </div>
-
-    <p>User's Profile: {{ user.id }}</p>
-    <p>User logged in: {{ $parent.getUserId() }}</p>
-
-    <img :src="user.image_url" alt="" />
-
-    <div>
-      <h1>{{ user.name }}'s Posts</h1>
-      <div v-for="post in posts" v-bind:key="post.id">
-        <router-link :to="`/posts/${post.id}`">
-          <h3>{{ post.name }}</h3>
-        </router-link>
-        <img v-bind:src="post.image_url" alt="" />
-        <p>{{ post.body }}</p>
-        <p>Posted: {{ relativeDate(post.created_at) }}</p>
-      </div>
-    </div>
-    <div>
-      <h1>{{ user.name }}'s Boards</h1>
-      <div v-for="board in boards" v-bind:key="board.id">
-        <router-link :to="`/boards/${board.id}`">
-          <h3>{{ board.title }}</h3>
-        </router-link>
-        <p>{{ board.description }}</p>
-        <p>Updated: {{ relativeDate(board.updated_at) }}</p>
-      </div>
-    </div>
   </div>
 </template>
 <style></style>

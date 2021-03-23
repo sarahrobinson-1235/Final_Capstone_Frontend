@@ -3,7 +3,7 @@
     <!-- Articles -->
     <router-link
       v-if="!$parent.isLoggedIn()"
-      to="/signup"
+      to="/login"
       class="btn btn-small btn-rose-str"
       >Log In to Access</router-link
     >

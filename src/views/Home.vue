@@ -116,7 +116,6 @@
 import axios from "axios";
 import moment from "moment";
 import Vue2Filters from "vue2-filters";
-// import anime from 'animejs/lib/anime.es.js';
 
 export default {
   mixins: [Vue2Filters.mixin],
@@ -175,9 +174,6 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
-    // popUp: function() {
-    //   alert(this.message);
-    // }
   },
 };
 </script>
