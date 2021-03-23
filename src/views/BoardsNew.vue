@@ -92,7 +92,7 @@
 
               <div class="field text-center">
                 <button type="submit" class="btn btn-rose" value="Submit">
-                  Create Board!
+                  Create Board
                 </button>
               </div>
             </form>

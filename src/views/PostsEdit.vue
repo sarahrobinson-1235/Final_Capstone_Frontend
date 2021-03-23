@@ -98,10 +98,6 @@
                 ></textarea>
               </div>
               <div class="e-divider-1"></div>
-              <div>
-                <img :src="post.image_url" alt="" />
-              </div>
-              <div class="e-divider-2"></div>
 
               <div class="field text-center">
                 <button type="submit" class="btn btn-rose">

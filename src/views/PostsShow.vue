@@ -122,7 +122,7 @@
                         value="Add to Board"
                       />
                     </p>
-                    <!-- {{ this.message }} -->
+                    {{ this.message }}
                     <div class="e-divider-8"></div>
                     <p>
                       <router-link to="/boards/new"
@@ -199,11 +199,11 @@ export default {
           this.board_post = response.data;
           console.log(this.board_post);
           console.log(response.data);
+          this.message = response.data.message;
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
-      this.message = "Post added to your board!";
     },
   },
 };
