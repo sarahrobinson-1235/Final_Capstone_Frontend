@@ -104,7 +104,7 @@
                   class="newsletter newsletter-widget newsletter-firstname form-group"
                   placeholder="Boards"
                 >
-                  <form>
+                  <form v-on:submit.prevent="createBoardPost()">
                     <input type="hidden" name="nr" value="widget" />
                     <select v-model="board_id" id=""
                       ><option
