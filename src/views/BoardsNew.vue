@@ -136,7 +136,7 @@ export default {
         .post("/api/boards", params)
         .then((response) => {
           console.log(response.data);
-          this.$router.push("/boards");
+          this.$router.push("/");
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

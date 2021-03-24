@@ -150,7 +150,7 @@ export default {
         .get("/api/posts")
         .then((response) => {
           console.log(response.data);
-          this.posts = response.data;
+          this.posts = response.data.reverse();
         })
         .catch((error) => {
           console.log(error.response.data.errors);

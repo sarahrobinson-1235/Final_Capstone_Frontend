@@ -7,6 +7,12 @@
           <!--Content Column-->
           <div class="col-md-8 pull-left">
             <div class="row">
+              <div class="e-divider-2"></div>
+              <div class="page-detail text-center">
+                <h3 class="hello">
+                  <u>{{ user.name }}'s Boards</u>
+                </h3>
+              </div>
               <article
                 v-for="board in boards"
                 v-bind:key="board.id"
@@ -39,6 +45,13 @@
                 </div>
               </article>
 
+              <div class="page-detail text-center">
+                <div class="page-detail text-center">
+                  <h3 class="hello">
+                    <u>{{ user.name }}'s Posts</u>
+                  </h3>
+                </div>
+              </div>
               <article
                 v-for="post in posts"
                 v-bind:key="post.id"

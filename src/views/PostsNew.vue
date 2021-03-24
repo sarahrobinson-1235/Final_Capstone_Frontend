@@ -94,7 +94,7 @@
 
               <div class="field text-center">
                 <button type="submit" class="btn btn-rose" value="Submit">
-                  Create Post!
+                  Create Post
                 </button>
               </div>
             </form>
@@ -127,9 +127,19 @@ export default {
       body: "",
       image_url: "",
       errors: [],
+      posts: [],
     };
   },
+  created: function() {
+    this.indexPosts();
+  },
   methods: {
+    indexPosts: function() {
+      axios.get("/api/posts").then((response) => {
+        console.log(response.data);
+        this.posts = response.data;
+      });
+    },
     createPost: function() {
       var params = {
         name: this.name,
@@ -140,6 +150,8 @@ export default {
         .post("/api/posts", params)
         .then((response) => {
           console.log(response.data);
+          console.log(this.posts);
+          this.posts.unshift(response.data);
           this.$router.push("/");
         })
         .catch((error) => {
