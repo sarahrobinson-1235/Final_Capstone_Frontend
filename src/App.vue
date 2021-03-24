@@ -8,7 +8,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <h1 class="text-center">
-                <a href="index.html">Lovely Affirmations</a>
+                <router-link to="/">Lovely Affirmations</router-link>
               </h1>
               <span class="small subtitle"
                 ><span class="lined"

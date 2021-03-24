@@ -112,7 +112,7 @@ export default {
         .get("/api/boards")
         .then((response) => {
           console.log(response.data);
-          this.boards = response.data;
+          this.boards = response.data.reverse();
         })
         .catch((error) => {
           console.log(error.response.data.errors);

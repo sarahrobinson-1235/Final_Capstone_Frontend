@@ -124,8 +124,10 @@ export default {
       title: "",
       description: "",
       errors: [],
+      boards: [],
     };
   },
+
   methods: {
     createBoard: function() {
       var params = {
@@ -136,6 +138,7 @@ export default {
         .post("/api/boards", params)
         .then((response) => {
           console.log(response.data);
+          this.boards.unshift(response.data);
           this.$router.push("/");
         })
         .catch((error) => {
