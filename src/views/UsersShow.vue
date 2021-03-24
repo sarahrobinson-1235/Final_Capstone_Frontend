@@ -156,8 +156,8 @@ export default {
   created: function() {
     axios.get(`/api/users/${this.$route.params.id}`).then((response) => {
       this.user = response.data;
-      this.posts = this.user.posts;
-      this.boards = this.user.boards;
+      this.posts = this.user.posts.reverse();
+      this.boards = this.user.boards.reverse();
       console.log(this.user);
     });
   },
