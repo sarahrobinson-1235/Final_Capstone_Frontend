@@ -169,7 +169,7 @@ export default {
         });
     },
     destroyPost: function() {
-      if (confirm("Are you aure you want to delete your affirmation?")) {
+      if (confirm("Are you sure you want to delete your affirmation?")) {
         axios.delete(`/api/posts/${this.post.id}`).then((response) => {
           console.log(response.data);
           this.$router.push("/");

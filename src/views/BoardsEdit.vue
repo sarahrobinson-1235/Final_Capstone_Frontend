@@ -179,7 +179,7 @@ export default {
         });
     },
     destroyBoard: function() {
-      if (confirm("Are you aure you want to delete your board?")) {
+      if (confirm("Are you sure you want to delete your board?")) {
         axios.delete(`/api/boards/${this.board.id}`).then((response) => {
           console.log(response.data);
           this.$router.push("/boards");
@@ -188,7 +188,7 @@ export default {
     },
     destroyBoardPost: function(boardPost) {
       if (
-        confirm("Are you aure you want to remove this post from your board?")
+        confirm("Are you sure you want to remove this post from your board?")
       ) {
         console.log(boardPost);
         axios.delete(`/api/board_posts/${boardPost.id}`).then((response) => {

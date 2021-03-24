@@ -65,7 +65,7 @@
                       }}</router-link>
                     </h2>
                     <div class="metas">
-                      Created:
+                      Updated:
                       {{ relativeDate(board.updated_at) }}/&nbsp; Creator:
                       <router-link :to="`/users/${board.user.id}`">{{
                         board.user.name
